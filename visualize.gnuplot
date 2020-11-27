@@ -6,7 +6,21 @@ set xtics font ", 8"
 set ytics font ", 8"
 set key font ",12"
 
+
+set output "2020-JB-Curves.png"
+set datafile separator ","
+set multiplot title "Votes over Time" layout 1,2
+	set title "Wisconsin" offset 0,-2
+	set xrange ["2020-11-04T00:00:00Z":"2020-11-05T00:00:00Z"]   
+  plot 'trump.wisconsin' using 1:2  with line lw 2 lc rgb "red", "biden.wisconsin" using 1:2  with line lw 2 lc rgb "blue" 
+
+	set title "Michigan" offset 0,-2
+	set xrange ["2020-11-04T00:00:00Z":"2020-11-05T00:00:00Z"]   
+  plot 'trump.michigan' using 1:2  with line lw 2 lc rgb "red", "biden.michigan" using 1:2  with line lw 2 lc rgb "blue" 
+unset multiplot
+
 set output "2020-1.png"
+set datafile separator " "
 set multiplot title "2020 Election Votes Anomalies" layout 7,2 
 	set title "Alabama election day" offset 0,-2
 	set xrange ["2020-11-04T00:00:00Z":"2020-11-05T00:00:00Z"]   
